@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work | Seth Amigo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #1a1a1a;
+            --gray-dark: #333;
+            --gray-medium: #666;
+            --gray-light: #999;
+            --white: #fff;
+            --accent: #e63946;
+        }
+
+        ::selection {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--gray-dark);
+            background: var(--white);
+            -webkit-font-smoothing: antialiased;
+            background-image: 
+                radial-gradient(ellipse at 0% 0%, rgba(0,0,0,0.015) 0%, transparent 50%),
+                radial-gradient(ellipse at 100% 100%, rgba(0,0,0,0.01) 0%, transparent 50%);
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background: var(--black);
+            padding: 18px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            background: rgba(26, 26, 26, 0.95);
+        }
+
+        .logo {
+            color: var(--white);
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover {
+            opacity: 0.7;
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+        }
+
+        nav a {
+            color: var(--gray-light);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--white);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--white);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 80px 48px 120px;
+        }
+
+        /* Page Title */
+        .page-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(56px, 10vw, 100px);
+            font-weight: 700;
+            line-height: 1;
+            text-transform: uppercase;
+            margin-bottom: 64px;
+            letter-spacing: -2px;
+            background: linear-gradient(90deg, var(--black) 0%, var(--gray-light) 80%, #ddd 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: transform 0.4s ease;
+        }
+
+        .page-title:hover {
+            transform: translateX(8px);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: linear-gradient(180deg, var(--black) 0%, var(--gray-light) 100%);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 56px;
+            padding-left: 16px;
+            border-left: 2px solid transparent;
+            margin-left: -2px;
+            transition: all 0.4s ease;
+        }
+
+        .timeline-item:hover {
+            border-left-color: var(--black);
+            padding-left: 24px;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -46px;
+            top: 8px;
+            width: 10px;
+            height: 10px;
+            background: var(--black);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover::before {
+            transform: scale(1.4);
+            box-shadow: 0 0 0 4px rgba(26, 26, 26, 0.1);
+        }
+
+        .timeline-date {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--gray-light);
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .timeline-item:hover .timeline-date {
+            color: var(--gray-medium);
+        }
+
+        .timeline-content h3 {
+            font-size: 22px;
+            font-weight: 500;
+            color: var(--black);
+            margin-bottom: 6px;
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-item:hover .timeline-content h3 {
+            transform: translateX(4px);
+        }
+
+        .timeline-content .company {
+            font-size: 15px;
+            color: var(--gray-medium);
+            margin-bottom: 16px;
+        }
+
+        .timeline-content .description {
+            font-size: 15px;
+            color: var(--gray-dark);
+            line-height: 1.8;
+            max-width: 600px;
+            transition: color 0.3s ease;
+        }
+
+        .timeline-item:hover .timeline-content .description {
+            color: var(--black);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            header {
+                padding: 16px 24px;
+            }
+
+            main {
+                padding: 48px 24px 80px;
+            }
+
+            .page-title {
+                margin-bottom: 48px;
+            }
+
+            .timeline {
+                padding-left: 28px;
+            }
+
+            .timeline-item {
+                padding-left: 8px;
+            }
+
+            .timeline-item:hover {
+                padding-left: 16px;
+            }
+
+            .timeline-item::before {
+                left: -34px;
+            }
+
+            .timeline-content .description {
+                max-width: 100%;
+            }
+
+            nav {
+                gap: 20px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes growLine {
+            from {
+                transform: scaleY(0);
+                transform-origin: top;
+            }
+            to {
+                transform: scaleY(1);
+                transform-origin: top;
+            }
+        }
+
+        .page-title {
+            animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .timeline::before {
+            animation: growLine 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+        }
+
+        .timeline-item {
+            animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        .timeline-item:nth-child(1) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.35s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.5s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.65s; }
+        .timeline-item:nth-child(5) { animation-delay: 0.8s; }
+
+        header {
+            animation: slideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">Seth Amigo</a>
+        <nav>
+            <a href="index.html">About</a>
+            <a href="work.html" class="active">Work</a>
+            <a href="personal.html">Personal</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1 class="page-title">Experience</h1>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">2022 — Present</div>
+                <div class="timeline-content">
+                    <h3>Director, Data Analytics</h3>
+                    <p class="company">Lennar · Miami, FL</p>
+                    <p class="description">Architected modern data platform using dbt and Snowflake. Lead cross-functional data science team supporting Land Acquisition, Development, Construction, Customer Care, and Finance. Head Palantir Foundry CoE enabling AI use cases that unlocked $50M+ in productivity. Scaled team by hiring 100+ recent graduates over three years.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2020 — 2021</div>
+                <div class="timeline-content">
+                    <h3>Director, Business Analytics</h3>
+                    <p class="company">UKG (Ultimate Software) · Weston, FL</p>
+                    <p class="description">Created reporting processes improving analyst efficiency by 14%. Managed DataOps practice promoting collaboration between analysts, engineers, and business users. Drove adoption of self-service BI and data stewardship through coaching and training.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2014 — 2020</div>
+                <div class="timeline-content">
+                    <h3>Sr. Manager, Strategic Analytics</h3>
+                    <p class="company">UKG (Ultimate Software) · Weston, FL</p>
+                    <p class="description">Architected cloud-based Self-Service BI Platform. Managed team of 10 analysts delivering descriptive, diagnostic, predictive and prescriptive analytics. Reduced $2M in labor costs through predictive analytics and automation. Built ROI models to evaluate project priorities.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2011 — 2014</div>
+                <div class="timeline-content">
+                    <h3>Manager, Student Finance</h3>
+                    <p class="company">Kaplan · Ft. Lauderdale, FL</p>
+                    <p class="description">Managed billing processes for 70K students across 20 campuses. Led implementation of initiatives across major business units including technology projects, process workflows, and reporting. Collaborated with stakeholders to establish key business metrics and dashboards.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2008 — 2011</div>
+                <div class="timeline-content">
+                    <h3>Analyst, Process Improvement</h3>
+                    <p class="company">Kaplan · Ft. Lauderdale, FL</p>
+                    <p class="description">Created and implemented ticketing solution aligning call centers and Financial Aid processing. Identified and implemented validation rules eliminating compliance defects. Coached Six Sigma Whitebelt Candidates to project completion.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

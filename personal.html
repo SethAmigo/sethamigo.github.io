@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal | Seth Amigo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #1a1a1a;
+            --gray-dark: #333;
+            --gray-medium: #666;
+            --gray-light: #999;
+            --white: #fff;
+            --accent: #e63946;
+        }
+
+        ::selection {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--gray-dark);
+            background: var(--white);
+            -webkit-font-smoothing: antialiased;
+            background-image: 
+                radial-gradient(ellipse at 0% 0%, rgba(0,0,0,0.015) 0%, transparent 50%),
+                radial-gradient(ellipse at 100% 100%, rgba(0,0,0,0.01) 0%, transparent 50%);
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background: var(--black);
+            padding: 18px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            background: rgba(26, 26, 26, 0.95);
+        }
+
+        .logo {
+            color: var(--white);
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover {
+            opacity: 0.7;
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+        }
+
+        nav a {
+            color: var(--gray-light);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--white);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--white);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 80px 48px 120px;
+        }
+
+        /* Page Title */
+        .page-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(56px, 10vw, 100px);
+            font-weight: 700;
+            line-height: 1;
+            text-transform: uppercase;
+            margin-bottom: 64px;
+            letter-spacing: -2px;
+            background: linear-gradient(90deg, var(--black) 0%, var(--gray-light) 80%, #ddd 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: transform 0.4s ease;
+        }
+
+        .page-title:hover {
+            transform: translateX(8px);
+        }
+
+        /* Content Sections */
+        .personal-section {
+            margin-bottom: 64px;
+        }
+
+        .personal-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-label {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--gray-light);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .personal-section:hover .section-label {
+            color: var(--gray-medium);
+        }
+
+        .section-content {
+            font-size: 20px;
+            line-height: 1.6;
+            color: var(--gray-dark);
+            max-width: 600px;
+            transition: color 0.3s ease;
+        }
+
+        .personal-section:hover .section-content {
+            color: var(--black);
+        }
+
+        .section-content strong {
+            color: var(--black);
+            font-weight: 500;
+        }
+
+        .tags {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--black);
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(26, 26, 26, 0.2);
+        }
+
+        .family-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+            max-width: 600px;
+        }
+
+        .family-member {
+            text-align: center;
+            padding: 32px 16px;
+            background: #f8f8f8;
+            transition: all 0.4s ease;
+            cursor: default;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .family-member::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--black);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .family-member:hover::before {
+            transform: scaleX(1);
+        }
+
+        .family-member:hover {
+            background: #f0f0f0;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+        }
+
+        .family-member .name {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--black);
+            margin-bottom: 4px;
+            transition: transform 0.3s ease;
+        }
+
+        .family-member:hover .name {
+            transform: translateY(-2px);
+        }
+
+        .family-member .relation {
+            font-size: 13px;
+            color: var(--gray-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            header {
+                padding: 16px 24px;
+            }
+
+            main {
+                padding: 48px 24px 80px;
+            }
+
+            .page-title {
+                margin-bottom: 48px;
+            }
+
+            .section-content {
+                font-size: 18px;
+            }
+
+            nav {
+                gap: 20px;
+            }
+
+            .family-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .page-title {
+            animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .personal-section {
+            animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        .personal-section:nth-child(1) { animation-delay: 0.15s; }
+        .personal-section:nth-child(2) { animation-delay: 0.3s; }
+
+        .family-member {
+            animation: scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        .family-member:nth-child(1) { animation-delay: 0.25s; }
+        .family-member:nth-child(2) { animation-delay: 0.35s; }
+        .family-member:nth-child(3) { animation-delay: 0.45s; }
+        .family-member:nth-child(4) { animation-delay: 0.55s; }
+
+        .tag {
+            animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        .tag:nth-child(1) { animation-delay: 0.4s; }
+        .tag:nth-child(2) { animation-delay: 0.5s; }
+        .tag:nth-child(3) { animation-delay: 0.6s; }
+
+        header {
+            animation: slideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">Seth Amigo</a>
+        <nav>
+            <a href="index.html">About</a>
+            <a href="work.html">Work</a>
+            <a href="personal.html" class="active">Personal</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1 class="page-title">Life</h1>
+        
+        <section class="personal-section">
+            <p class="section-label">Family</p>
+            <p class="section-content">Married to <strong>Kim</strong>, and proud dad to three amazing kids.</p>
+            <div class="family-grid">
+                <div class="family-member">
+                    <p class="name">Kim</p>
+                    <p class="relation">Wife</p>
+                </div>
+                <div class="family-member">
+                    <p class="name">Finley</p>
+                    <p class="relation">Child</p>
+                </div>
+                <div class="family-member">
+                    <p class="name">Grey</p>
+                    <p class="relation">Child</p>
+                </div>
+                <div class="family-member">
+                    <p class="name">Noah</p>
+                    <p class="relation">Child</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="personal-section">
+            <p class="section-label">Sports</p>
+            <p class="section-content">When I'm not wrangling data, you'll find me on the court or in the gym.</p>
+            <div class="tags">
+                <span class="tag">Tennis</span>
+                <span class="tag">Table Tennis</span>
+                <span class="tag">CrossFit</span>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
