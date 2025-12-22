@@ -111,7 +111,7 @@
 
         /* Main Content */
         main {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 80px 48px 120px;
         }
@@ -119,21 +119,32 @@
         /* Page Title */
         .page-title {
             font-family: 'Oswald', sans-serif;
-            font-size: clamp(56px, 10vw, 100px);
+            font-size: clamp(72px, 12vw, 140px);
             font-weight: 700;
-            line-height: 1;
+            line-height: 0.95;
             text-transform: uppercase;
-            margin-bottom: 64px;
+            margin-bottom: 80px;
             letter-spacing: -2px;
-            background: linear-gradient(90deg, var(--black) 0%, var(--gray-light) 80%, #ddd 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        }
+
+        .page-title span {
+            display: block;
             transition: transform 0.4s ease;
         }
 
-        .page-title:hover {
+        .page-title:hover span:first-child {
             transform: translateX(8px);
+        }
+
+        .page-title:hover span.fade {
+            transform: translateX(-8px);
+        }
+
+        .page-title .fade {
+            background: linear-gradient(90deg, var(--black) 0%, var(--gray-light) 60%, #ddd 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         /* Content Sections */
@@ -355,16 +366,19 @@
 </head>
 <body>
     <header>
-        <a href="index.html" class="logo">Seth Amigo</a>
+        <a href="/" class="logo">Seth Amigo</a>
         <nav>
-            <a href="index.html">About</a>
-            <a href="work.html">Work</a>
-            <a href="personal.html" class="active">Personal</a>
+            <a href="/">About</a>
+            <a href="/work.html">Work</a>
+            <a href="/personal.html" class="active">Personal</a>
         </nav>
     </header>
 
     <main>
-        <h1 class="page-title">Life</h1>
+        <h1 class="page-title">
+            <span>PERSONAL</span>
+            <span class="fade">LIFE</span>
+        </h1>
         
         <section class="personal-section">
             <p class="section-label">Family</p>
