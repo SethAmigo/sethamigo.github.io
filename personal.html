@@ -211,63 +211,22 @@
             box-shadow: 0 8px 24px rgba(26, 26, 26, 0.2);
         }
 
-        .family-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 16px;
+        .family-photo {
             margin-top: 24px;
             max-width: 600px;
-        }
-
-        .family-member {
-            text-align: center;
-            padding: 32px 16px;
-            background: #f8f8f8;
-            transition: all 0.4s ease;
-            cursor: default;
-            position: relative;
             overflow: hidden;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
         }
 
-        .family-member::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--black);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
+        .family-photo img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
-        .family-member:hover::before {
-            transform: scaleX(1);
-        }
-
-        .family-member:hover {
-            background: #f0f0f0;
-            transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(0,0,0,0.08);
-        }
-
-        .family-member .name {
-            font-size: 18px;
-            font-weight: 500;
-            color: var(--black);
-            margin-bottom: 4px;
-            transition: transform 0.3s ease;
-        }
-
-        .family-member:hover .name {
-            transform: translateY(-2px);
-        }
-
-        .family-member .relation {
-            font-size: 13px;
-            color: var(--gray-light);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .family-photo:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
         }
 
         /* Responsive */
@@ -290,10 +249,6 @@
 
             nav {
                 gap: 20px;
-            }
-
-            .family-grid {
-                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -342,14 +297,10 @@
         .personal-section:nth-child(1) { animation-delay: 0.15s; }
         .personal-section:nth-child(2) { animation-delay: 0.3s; }
 
-        .family-member {
+        .family-photo {
             animation: scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+            animation-delay: 0.25s;
         }
-
-        .family-member:nth-child(1) { animation-delay: 0.25s; }
-        .family-member:nth-child(2) { animation-delay: 0.35s; }
-        .family-member:nth-child(3) { animation-delay: 0.45s; }
-        .family-member:nth-child(4) { animation-delay: 0.55s; }
 
         .tag {
             animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -383,23 +334,8 @@
         <section class="personal-section">
             <p class="section-label">Family</p>
             <p class="section-content">Married to <strong>Kim</strong>, and proud dad to three amazing kids.</p>
-            <div class="family-grid">
-                <div class="family-member">
-                    <p class="name">Kim</p>
-                    <p class="relation">Wife</p>
-                </div>
-                <div class="family-member">
-                    <p class="name">Finley</p>
-                    <p class="relation">Child</p>
-                </div>
-                <div class="family-member">
-                    <p class="name">Grey</p>
-                    <p class="relation">Child</p>
-                </div>
-                <div class="family-member">
-                    <p class="name">Noah</p>
-                    <p class="relation">Child</p>
-                </div>
+            <div class="family-photo">
+                <img src="family.jpg" alt="Seth Amigo and family">
             </div>
         </section>
 
