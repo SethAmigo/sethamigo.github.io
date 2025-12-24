@@ -1,0 +1,21 @@
+{
+  "name": "sethamigo-portfolio",
+  "version": "1.0.0",
+  "description": "Personal portfolio website for Seth Amigo, Director of Data Analytics",
+  "private": true,
+  "scripts": {
+    "serve": "python3 -m http.server 8000",
+    "validate": "echo 'No validation configured yet'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SethAmigo/sethamigo.github.io"
+  },
+  "keywords": [
+    "portfolio",
+    "static-site"
+  ],
+  "author": "Seth Amigo",
+  "license": "MIT",
+  "devDependencies": {}
+}
