@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "slug": "building-modern-data-platforms",
+    "title": "Building Modern Data Platforms with Snowflake and dbt",
+    "date": "2026-03-15",
+    "category": "Data Engineering",
+    "excerpt": "Explore how to architect scalable, maintainable data platforms using Snowflake and dbt. Learn best practices for ELT pipelines, data governance, and enabling self-service analytics across your organization.",
+    "readTime": "8 min read",
+    "content": "Building Modern Data Platforms with Snowflake and dbt\n\nIn today's data-driven world, organizations need platforms that scale, maintain quality, and enable self-service analytics. Here's how we built ours..."
+  },
+  {
+    "id": 2,
+    "slug": "ai-use-cases-palantir-foundry",
+    "title": "Unlocking Enterprise Value: AI Use Cases with Palantir Foundry",
+    "date": "2026-03-10",
+    "category": "AI & Analytics",
+    "excerpt": "Real-world examples of how enterprises are using Palantir Foundry to solve complex business problems with AI and advanced analytics. From predictive modeling to operational intelligence, discover the patterns of success.",
+    "readTime": "12 min read",
+    "content": "Unlocking Enterprise Value: AI Use Cases with Palantir Foundry\n\nPalantir Foundry is a powerful platform for building data-driven applications at scale. But how do you identify the right use cases? Here's what we learned..."
+  },
+  {
+    "id": 3,
+    "slug": "scaling-analytics-teams-data-culture",
+    "title": "Scaling Analytics Teams: Building a Data-Driven Culture",
+    "date": "2026-03-05",
+    "category": "Leadership",
+    "excerpt": "Insights on building and scaling high-performing analytics teams. Learn how to foster a data-driven culture, establish governance, hire for growth, and transform data from a cost center into a competitive advantage.",
+    "readTime": "10 min read",
+    "content": "Scaling Analytics Teams: Building a Data-Driven Culture\n\nScaling an analytics function is more than just hiring more people. It requires intentional culture-building, governance, and alignment with business strategy..."
+  },
+  {
+    "id": 4,
+    "slug": "self-service-analytics-adoption",
+    "title": "The Self-Service Analytics Revolution: Empowering Business Users",
+    "date": "2026-02-28",
+    "category": "Data Strategy",
+    "excerpt": "Why self-service analytics matters and how to implement it successfully. Discover strategies for reducing bottlenecks, enabling faster decision-making, and building platforms that business users actually love.",
+    "readTime": "7 min read",
+    "content": "The Self-Service Analytics Revolution: Empowering Business Users\n\nThe traditional model where analysts act as gatekeepers is no longer sustainable. Self-service analytics enables speed and scale..."
+  },
+  {
+    "id": 5,
+    "slug": "predictive-analytics-business-impact",
+    "title": "From Descriptive to Prescriptive: Measuring Analytics Impact",
+    "date": "2026-02-20",
+    "category": "Analytics",
+    "excerpt": "How to move beyond dashboards and reports to deliver predictive and prescriptive analytics that directly impact the bottom line. Learn frameworks for ROI calculation and communicating value to executives.",
+    "readTime": "9 min read",
+    "content": "From Descriptive to Prescriptive: Measuring Analytics Impact\n\nMost organizations are excellent at describing what happened. But the real competitive advantage comes from predicting what will happen and prescribing what to do about it..."
+  },
+  {
+    "id": 6,
+    "slug": "organizational-transformation-data",
+    "title": "Using Data as a Lever for Organizational Transformation",
+    "date": "2026-02-15",
+    "category": "Leadership",
+    "excerpt": "Data is more than numbers—it's a tool for understanding human behavior and driving organizational change. Explore how to use data insights to transform culture, processes, and performance.",
+    "readTime": "11 min read",
+    "content": "Using Data as a Lever for Organizational Transformation\n\nOrganizations that win in the modern era aren't the ones with the most data—they're the ones that use data to drive meaningful change..."
+  }
+]

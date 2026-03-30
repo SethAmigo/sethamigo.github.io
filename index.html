@@ -3,6 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Seth Amigo - Director of Data Analytics in South Florida. Specializing in building high-performing data teams and modern platforms that drive business impact. 15+ years in data, Snowflake, dbt, Palantir, Python, and AI/ML.">
+    <meta name="theme-color" content="#1a1a1a">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sethamigo.github.io/">
+    <meta property="og:title" content="Seth Amigo | Director of Data Analytics">
+    <meta property="og:description" content="Director of Data Analytics in South Florida. Building high-performing teams and modern data platforms.">
+    <meta property="og:image" content="https://sethamigo.github.io/profile.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sethamigo.github.io/">
+    <meta property="twitter:title" content="Seth Amigo | Director of Data Analytics">
+    <meta property="twitter:description" content="Director of Data Analytics in South Florida. Building high-performing teams and modern data platforms.">
+    <meta property="twitter:image" content="https://sethamigo.github.io/profile.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://sethamigo.github.io/">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Seth Amigo",
+        "jobTitle": "Director of Data Analytics",
+        "url": "https://sethamigo.github.io",
+        "image": "https://sethamigo.github.io/profile.jpg",
+        "sameAs": [
+            "https://linkedin.com/in/sethamigo"
+        ],
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Lennar"
+        }
+    }
+    </script>
+    
     <title>Seth Amigo | Director of Data Analytics</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,11 +51,21 @@
 <body>
     <header>
         <a href="/" class="logo">Seth Amigo</a>
-        <nav>
-            <a href="/" class="active">About</a>
-            <a href="/work.html">Work</a>
-            <a href="/personal.html">Personal</a>
-        </nav>
+        <div class="header-actions">
+            <nav id="nav-menu">
+                <a href="/" class="active">About</a>
+                <a href="/work.html">Work</a>
+                <a href="/projects.html">Projects</a>
+                <a href="/blog.html">Blog</a>
+                <a href="/personal.html">Personal</a>
+            </nav>
+            <button id="theme-toggle" aria-label="Switch to dark mode">☀️</button>
+            <button id="hamburger-menu" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
     </header>
 
     <main>
@@ -24,6 +73,42 @@
             <span>DATA</span>
             <span class="fade">DRIVEN</span>
         </h1>
+
+        <p class="hero-tagline">Director of Data Analytics · South Florida</p>
+
+        <div class="skill-chips">
+            <span class="skill-chip">Snowflake</span>
+            <span class="skill-chip">dbt</span>
+            <span class="skill-chip">Palantir Foundry</span>
+            <span class="skill-chip">Python</span>
+            <span class="skill-chip">AI/ML</span>
+            <span class="skill-chip">Leadership</span>
+        </div>
+
+        <div class="scroll-indicator">
+            <span class="scroll-arrow">↓</span>
+        </div>
+
+        <section class="impact-section">
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-number">$50M+</div>
+                    <div class="impact-label">Value Unlocked</div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-number">100+</div>
+                    <div class="impact-label">Team Members Hired</div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-number">15+</div>
+                    <div class="impact-label">Years in Data</div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-number">3</div>
+                    <div class="impact-label">Companies Scaled</div>
+                </div>
+            </div>
+        </section>
 
         <section class="about-section" id="about">
             <div class="photo-container">
@@ -49,14 +134,36 @@
             </div>
         </section>
 
-        <section class="footer-section">
+    </main>
+
+    <footer>
+        <div class="footer-grid">
             <div class="footer-column">
                 <h3>Contact</h3>
                 <p class="contact-item"><a href="mailto:sethamigo@gmail.com">sethamigo@gmail.com</a></p>
                 <p class="contact-item"><a href="tel:9548028431">(954) 802-8431</a></p>
                 <p class="contact-item"><a href="https://linkedin.com/in/sethamigo" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
             </div>
-        </section>
-    </main>
+            <div class="footer-column">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="/">About</a></li>
+                    <li><a href="/work.html">Work</a></li>
+                    <li><a href="/projects.html">Projects</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    <li><a href="/personal.html">Personal</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>About</h3>
+                <p style="font-size: 14px; color: var(--gray-medium); line-height: 1.6;">Director of Data Analytics specializing in modern data platforms and organizational transformation through data-driven decision making.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Seth Amigo. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
 </body>
 </html>

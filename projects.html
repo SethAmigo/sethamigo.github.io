@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Featured projects and work samples from Seth Amigo. Explore major initiatives in data platforms, analytics, AI, and organizational transformation.">
+    <meta name="theme-color" content="#1a1a1a">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://sethamigo.github.io/projects.html">
+
+    <title>Projects | Seth Amigo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <a href="/" class="logo">Seth Amigo</a>
+        <div class="header-actions">
+            <nav id="nav-menu">
+                <a href="/">About</a>
+                <a href="/work.html">Work</a>
+                <a href="/projects.html" class="active">Projects</a>
+                <a href="/blog.html">Blog</a>
+                <a href="/personal.html">Personal</a>
+            </nav>
+            <button id="theme-toggle" aria-label="Switch to dark mode">☀️</button>
+            <button id="hamburger-menu" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <h1 class="page-title">
+            <span>FEATURED</span>
+            <span class="fade">WORK</span>
+        </h1>
+
+        <section class="filter-section">
+            <p class="filter-label">Filter by category</p>
+            <div class="filter-pills">
+                <button class="filter-pill active" data-filter="all">All</button>
+                <button class="filter-pill" data-filter="Platform">Platform</button>
+                <button class="filter-pill" data-filter="Analytics">Analytics</button>
+                <button class="filter-pill" data-filter="AI/Analytics">AI/Analytics</button>
+            </div>
+        </section>
+
+        <div id="projects-grid" class="projects-grid">
+            <!-- Projects will be loaded here by JavaScript -->
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <p class="contact-item"><a href="mailto:sethamigo@gmail.com">sethamigo@gmail.com</a></p>
+                <p class="contact-item"><a href="tel:9548028431">(954) 802-8431</a></p>
+                <p class="contact-item"><a href="https://linkedin.com/in/sethamigo" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+            </div>
+            <div class="footer-column">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="/">About</a></li>
+                    <li><a href="/work.html">Work</a></li>
+                    <li><a href="/projects.html">Projects</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                    <li><a href="/personal.html">Personal</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>About</h3>
+                <p style="font-size: 14px; color: var(--gray-medium); line-height: 1.6;">Director of Data Analytics specializing in modern data platforms and organizational transformation through data-driven decision making.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Seth Amigo. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="projects.js"></script>
+</body>
+</html>

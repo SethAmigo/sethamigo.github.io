@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "Palantir Foundry Center of Excellence",
+    "company": "Lennar",
+    "role": "Head of CoE",
+    "impact": "$50M+ value unlocked",
+    "description": "Established and led the Palantir Foundry Center of Excellence enabling AI and advanced analytics use cases across the enterprise. Built governance framework, trained teams, and delivered enterprise-scale data applications.",
+    "technologies": ["Palantir Foundry", "AI/ML", "Data Governance", "Enterprise Architecture"],
+    "category": "AI/Analytics"
+  },
+  {
+    "id": 2,
+    "title": "Snowflake + dbt Modern Data Platform",
+    "company": "Lennar",
+    "role": "Director of Data Analytics",
+    "impact": "Centralized data for 5+ business units",
+    "description": "Architected and deployed a modern cloud-native data platform using Snowflake and dbt. Enabled self-service analytics for cross-functional teams supporting Land Acquisition, Development, Construction, Customer Care, and Finance.",
+    "technologies": ["Snowflake", "dbt", "Cloud Data Warehouse", "ETL/ELT", "Analytics"],
+    "category": "Platform"
+  },
+  {
+    "id": 3,
+    "title": "Self-Service BI Platform",
+    "company": "UKG",
+    "role": "Sr. Manager, Strategic Analytics",
+    "impact": "$2M cost reduction",
+    "description": "Designed and implemented a cloud-based self-service BI platform enabling business users to create their own reports and dashboards. Reduced dependency on analytics team and cut labor costs while improving decision velocity.",
+    "technologies": ["Cloud BI Tools", "Self-Service Analytics", "Data Governance", "User Training"],
+    "category": "Platform"
+  },
+  {
+    "id": 4,
+    "title": "Predictive Analytics for Labor Cost Reduction",
+    "company": "UKG",
+    "role": "Sr. Manager, Strategic Analytics",
+    "impact": "$2M in labor costs avoided",
+    "description": "Built predictive models and automation workflows to forecast staffing needs and optimize labor allocation. Delivered prescriptive recommendations to business leaders, resulting in significant cost avoidance and improved workforce efficiency.",
+    "technologies": ["Predictive Modeling", "Machine Learning", "Python", "Automation", "ROI Analysis"],
+    "category": "Analytics"
+  }
+]
