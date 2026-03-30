@@ -1,156 +1,336 @@
-# Sprint Plan: Seth Amigo Website Improvements
+# Sprint Plan: Athletic Performance Sections
 
 ## Sprint Goal
-Fix broken UI elements, add family photos to the personal page, and deliver meaningful visual polish to create a more professional and engaging portfolio experience.
+Build dedicated CrossFit PRs and Tennis sections on the personal page with clean, data-driven design that showcases Seth's athletic performance and competitive achievements.
 
 ---
 
 ## DEV BRIEF
 
-### Broken/Non-Functional Button Fixes
+### CrossFit PRs Section
 
-1. **Blog Card Links** — `/blog.html`
-   - **Issue**: Blog cards are styled as clickable links (`.blog-card`) but have `href="#"` and only log click events; they don't navigate anywhere
-   - **Fix**: Replace the `href="#"` with proper slug-based URLs (e.g., `/blog/building-modern-data-platforms.html`) and remove the preventDefault behavior OR if full blog infrastructure isn't ready, clearly disable them and show a "Coming Soon" badge
-   - **Recommendation**: Remove the click prevention and implement real navigation, or mark cards as disabled
+**Data Structure**: Create `/data/crossfit-prs.json` with the following format:
+```json
+{
+  "benchmark_wods": [
+    {
+      "name": "Fran",
+      "description": "21-15-9 reps: Thrusters (95lb) + Pull-ups",
+      "pr": "4:32",
+      "date": "2025-08-14",
+      "notes": "Recent PR, strong performance"
+    },
+    {
+      "name": "Murph",
+      "description": "1-mile run + 100 pull-ups + 200 push-ups + 300 squats + 1-mile run",
+      "pr": "38:47",
+      "date": "2025-05-26",
+      "notes": "Memorial Day WOD"
+    },
+    {
+      "name": "Grace",
+      "description": "30 Clean & Jerks (95lb) for time",
+      "pr": "3:28",
+      "date": "2025-11-03",
+      "notes": "Last tested in November"
+    }
+  ],
+  "compound_lifts": [
+    {
+      "lift": "Back Squat",
+      "pr": "315",
+      "unit": "lb",
+      "date": "2025-09-22"
+    },
+    {
+      "lift": "Deadlift",
+      "pr": "385",
+      "unit": "lb",
+      "date": "2025-10-10"
+    },
+    {
+      "lift": "Clean & Jerk",
+      "pr": "205",
+      "unit": "lb",
+      "date": "2025-07-18"
+    },
+    {
+      "lift": "Snatch",
+      "pr": "155",
+      "unit": "lb",
+      "date": "2025-09-08"
+    }
+  ],
+  "hero_wods": [
+    {
+      "name": "Helen",
+      "description": "3 rounds for time: 400m run + 21 kettlebell swings + 12 pull-ups",
+      "pr": "11:24",
+      "date": "2025-10-02"
+    },
+    {
+      "name": "Cindy",
+      "description": "20 min AMRAP: 5 pull-ups + 10 push-ups + 15 squats",
+      "pr": "22 rounds + 8 reps",
+      "date": "2025-09-15"
+    }
+  ]
+}
+```
 
-2. **Scroll Indicator** — `/index.html`
-   - **Issue**: The `.scroll-indicator` with down arrow (↓) is purely decorative and has no functionality; it's visually distracting
-   - **Fix**: Either remove it entirely (cleaner) or make it functional with smooth scroll-to-section behavior on click (anchor to #about section)
-   - **Recommendation**: Remove it entirely for cleaner design; the page is already responsive and modern enough without it
+**Sample Data Values** (realistic for fit adult male CrossFitter):
+- Benchmark WODs: Times ranging 3:28–38:47 (Fran in 4-5 min range, Murph 35-40 min)
+- Compound Lifts: Back Squat 305-325lb, Deadlift 365-405lb, Clean & Jerk 195-215lb, Snatch 145-165lb
+- Hero WODs: Helen 10-12 min, Cindy 20+ rounds in 20 min
 
-### Photo Implementation on Personal Page
+**UI Implementation** (`/personal.html`):
+1. Add a new section after "Sports & Fitness" called "CrossFit PRs"
+2. Display three sub-sections: **Benchmark WODs**, **Compound Lifts**, **Hero WODs**
+3. **Benchmark/Hero WODs**: Grid of cards (2-3 per row on desktop) showing:
+   - WOD name (large, bold)
+   - Description (smaller, gray text)
+   - PR time prominently displayed
+   - Date as small label
+   - Optional: "Last tested" badge if date is recent (within 60 days)
+4. **Compound Lifts**: Horizontal list (or short grid) showing:
+   - Lift name | PR weight (e.g., "Back Squat | 315 lb")
+   - Date updated
+   - Optional: Progress bar comparing to elite standards (e.g., 315 / 400 shows 78% fill)
+5. **Sortable/Filterable**: Include small pill buttons to toggle between "Benchmark WODs", "Compound Lifts", "Hero WODs" (JavaScript filters which section shows)
+6. Fetch data from `/data/crossfit-prs.json` dynamically (no hardcoding in HTML)
+7. Add a "Last Updated" timestamp at bottom of section
 
-3. **Family Section Photos** — `/personal.html`
-   - **Current State**: Family section shows names (Kim, Finley, Grey, Noah) but no photos
-   - **Task**: Add placeholder images using picsum.photos URLs to the `.family-member` cards
-   - **Implementation**:
-     - Update each `.family-member` div to include: `<img src="https://picsum.photos/200/200?random=1" alt="Kim">`
-     - Use different random seeds for each (random=1, random=2, random=3, random=4)
-     - Add `class="family-photo"` for styling
-     - Ensure images display as circles or rounded squares with proper aspect ratio (200x200px recommended)
-     - Alternative: Use specific themes like `?random=family-{number}` for visual consistency
+**Key Interaction**:
+- Clicking on a WOD card expands to show full description + date (or shows in tooltip on hover)
+- Hovering over compound lifts shows a tooltip with date and any notes
 
-### Verification Checklist
-- [ ] Blog cards either navigate correctly or are disabled/hidden
-- [ ] Scroll indicator either removed or functional
-- [ ] All four family members have placeholder photos
-- [ ] Photos render correctly at 200x200 with proper styling
-- [ ] No console errors on any page
+---
+
+### Tennis Section
+
+**Data Structure**: Create `/data/tennis-profile.json`:
+```json
+{
+  "profile": {
+    "ustaRating": "PLACEHOLDER: 4.5 (Update with actual rating)",
+    "utrRating": "PLACEHOLDER: UTR No public profile (Add if obtained)",
+    "currentTeam": "PLACEHOLDER: [Team Name] (South Florida league)",
+    "playingStyle": "PLACEHOLDER: Aggressive baseline game with strong forehand"
+  },
+  "recentMatches": [
+    {
+      "id": 1,
+      "opponent": "PLACEHOLDER: John Doe",
+      "result": "W",
+      "score": "6-4, 6-3",
+      "date": "2026-03-22",
+      "tournament": "Weekly League Match"
+    },
+    {
+      "id": 2,
+      "opponent": "PLACEHOLDER: Opponent Name",
+      "result": "L",
+      "score": "5-7, 6-4",
+      "date": "2026-03-15",
+      "tournament": "Weekly League Match"
+    }
+  ],
+  "stats": {
+    "matchesPlayed": 0,
+    "wins": 0,
+    "losses": 0,
+    "winPercentage": 0
+  },
+  "favoriteShots": [
+    "PLACEHOLDER: Forehand drive",
+    "PLACEHOLDER: Slice backhand",
+    "PLACEHOLDER: Volley"
+  ]
+}
+```
+
+**UI Implementation** (`/personal.html`):
+1. Add a new section "Tennis" after CrossFit PRs
+2. **Top Section — Profile Stats**: Horizontal card layout showing:
+   - USTA Rating (e.g., "4.5")
+   - UTR Rating (e.g., "N/A" or "TBD")
+   - Current Team/League (e.g., "Miami Racquet Club · Winter League")
+   - Win-Loss Record as metric (e.g., "12W — 8L" with win % badge)
+3. **Playing Style Box**: Centered text card with italic description: "Aggressive baseline game with strong forehand"
+4. **Recent Matches Timeline** (below stats):
+   - Display last 6 matches as a compact list/timeline
+   - Each match shows:
+     * Opponent name (clickable? or just text)
+     * Result badge (green "W" or red "L")
+     * Score (e.g., "6-4, 6-3")
+     * Date
+     * Tournament/League name
+   - Sortable by date (most recent first)
+   - Optional: "See all matches" link if more than 6 exist
+5. **Favorite Shots**: Small pill-style tags below timeline (e.g., "Forehand drive", "Slice backhand", "Volley")
+6. Fetch data from `/data/tennis-profile.json` dynamically
+
+**Placeholder Strategy**:
+- Every field with example data clearly marked "PLACEHOLDER:" so Seth knows exactly what to replace
+- Use light gray background or dashed border on placeholder sections to visually distinguish editable content
+- Include inline hint text (e.g., "Add your USTA rating here")
+
+**Key Interaction**:
+- Hovering over a match card shows additional details (if any)
+- Win/Loss badges colored distinctly (green #2ecc71 for W, red #e63946 for L, or site accent)
 
 ---
 
 ## DESIGNER BRIEF
 
-The site has solid bones but needs visual refinement to compete as a senior executive portfolio. Here are 8 specific improvements:
+### Visual Treatment — Energetic & Athletic
 
-### 1. **Hero Section Typography Hierarchy** — `/index.html`
-   - **Current**: Large "DATA DRIVEN" headline feels flat and lacks emphasis
-   - **Improve**: Add a subtle gradient or color accent to one word (e.g., "DRIVEN" in accent red #e63946). Use `background: linear-gradient(90deg, var(--accent) 0%, var(--accent) 100%); -webkit-background-clip: text; color: transparent;` on the `.fade` span. Currently the fade effect is opacity only.
+Both sections should feel **energetic, performance-focused, and competitive** while maintaining the clean, minimalist aesthetic of the existing site.
 
-### 2. **Hero Tagline and Spacing** — `/index.html`
-   - **Current**: "Director of Data Analytics · South Florida" sits close to headline; impact cards feel cramped below
-   - **Improve**: Increase top margin of `hero-tagline` from current spacing to 32px+. Add more breathing room between headline, tagline, skill chips, and impact section. Use CSS Grid gap to organize the hero better.
+#### CrossFit PRs Section
 
-### 3. **Skill Chips Styling** — `/index.html` & `/work.html`
-   - **Current**: Skill chips are plain with minimal visual feedback
-   - **Improve**:
-     - Add subtle `box-shadow: var(--shadow-sm)` to `.skill-chip`
-     - Add smooth hover transform: `transform: translateY(-2px); box-shadow: var(--shadow-md);`
-     - Consider a light background tint (use `--bg-secondary`) instead of just border
-     - Add transition: `transition: all var(--transition-fast);`
+**Color & Typography**:
+- Use accent color (#e63946) sparingly for PR numbers and category headers
+- Benchmark WOD cards: White/light background with subtle border and shadow
+- PR times should be **bold, large** (32-40px) in accent red to draw eye
+- Description text in gray-medium for hierarchy
+- Dates in gray-light, smaller font
 
-### 4. **Impact Cards Design** — `/index.html`
-   - **Current**: Cards are borderless rectangles, minimal visual hierarchy
-   - **Improve**:
-     - Add `background: var(--bg-secondary)` to `.impact-card`
-     - Add `border-radius: var(--radius-lg)`
-     - Add `padding: 32px 24px` for better internal spacing
-     - Add `box-shadow: var(--shadow-sm)` for depth
-     - Make numbers larger and bolder: `font-weight: 700; font-size: 40px;` (was 32px)
-     - On hover: `transform: translateY(-4px); box-shadow: var(--shadow-md);`
+**Layout**:
+- 3-column grid on desktop (2 columns on tablet, 1 on mobile) for WOD cards
+- Compound lifts as compact 2-column grid or horizontal list with left-align
+- Clear visual separation between Benchmark, Compound, and Hero sections (light divider line or whitespace)
+- Add subtle icons/emojis before section headers (e.g., 🏋️ "Compound Lifts")
 
-### 5. **Filter Pills / Buttons Hover States** — `/projects.html` & `/blog.html`
-   - **Current**: Minimal hover feedback on filter buttons
-   - **Improve**:
-     - Add `transition: all var(--transition-base)` to `.filter-pill`
-     - Active state should have stronger visual distinction: add `box-shadow: var(--shadow-md)` when active
-     - Hover should lift slightly: `transform: translateY(-2px);`
-     - Consider a subtle scale or brightness increase on non-active pills too
+**Hover & Interaction**:
+- WOD cards: Lift shadow on hover (`box-shadow: var(--shadow-md)`) + slight scale (1.02x)
+- Transition: 200ms ease-in-out
+- Filter pills (category toggles) should show active state with underline or background fill
 
-### 6. **Project/Blog Card Polish** — `/projects.html` & `/blog.html`
-   - **Current**: Cards lack shadow and feel flat
-   - **Improve**:
-     - Add `box-shadow: var(--shadow-sm)` to `.project-card` and `.blog-card`
-     - Add `border-radius: var(--radius-lg)` to both
-     - Add `background: var(--bg-secondary)` as subtle background
-     - On hover: `box-shadow: var(--shadow-md); transform: translateY(-4px);`
-     - Ensure smooth transitions: `transition: all var(--transition-base);`
+**Progress Bars** (Compound Lifts):
+- Thin horizontal bars (4px height) showing PR vs. elite standard
+- Color: gradient from accent-light to accent (red)
+- Example: 315 lb back squat vs. 400 lb elite = 78% filled bar
+- Include % text to the right of bar (e.g., "78%")
 
-### 7. **Footer Contrast & Spacing** — All pages
-   - **Current**: Footer is cramped; links have poor contrast in light mode
-   - **Improve**:
-     - Increase `.footer-grid` gap from current to `gap: 48px;`
-     - Make footer links bolder/darker (footer-column a should have more weight)
-     - Add subtle `border-top: 1px solid var(--border-color)` above footer to separate it visually
-     - Increase top padding of footer to `padding-top: 64px;`
+#### Tennis Section
 
-### 8. **Personal Page Family Section Visual Treatment** — `/personal.html`
-   - **Current**: Family cards are text-only rectangles
-   - **Improve** (once photos are added):
-     - Center photos at top of each `.family-member` card
-     - Add `text-align: center;` and `padding: 24px 16px;`
-     - Style photos as circles: `border-radius: 50%;` with a subtle border
-     - Add subtle card background: `background: var(--bg-secondary); border-radius: var(--radius-lg);`
-     - Add spacing between photo and text: `margin-bottom: 12px;`
-     - Consider a subtle hover scale on family cards too
+**Color & Typography**:
+- Stats cards: Subtle background (--bg-secondary), similar styling to impact cards on home page
+- Record metrics (W-L) in larger font (28-32px), numbers bold
+- Match results: Win in green (#2ecc71), Loss in red (#e63946)
+- Opponent names in gray-dark, date in gray-light
+- Playing style text in italic, gray-medium
 
-### General Polish Notes
-- All interactive elements need clear transition definitions
-- Ensure hover states have consistent lift/shadow patterns across the site
-- Review spacing/padding to ensure breathing room in all sections
-- Test dark mode thoroughly to ensure shadows and colors work in both themes
+**Layout**:
+- **Profile Stats**: Horizontal grid, 4 stat cards in a row (2x2 on tablet, 1 col on mobile)
+- Each stat card has:
+  * Small label (gray-light, uppercase, 11px)
+  * Large value (bold, 28-36px)
+  * Subtle background + border-radius (same card treatment as CrossFit PRs)
+- **Playing Style**: Centered container, larger font (18px), light background, padding 24px, subtle border
+- **Recent Matches**: Vertical timeline or list with:
+  * Left side: Result badge (circular, W or L) — 40px diameter
+  * Right side: Opponent, score, date, tournament in column layout
+  * Alternating subtle backgrounds (every other match has slight tint) for visual rhythm
+- **Favorite Shots**: Horizontal flex of pill tags with subtle background
+
+**Hover & Interaction**:
+- Stat cards: Lift on hover (`transform: translateY(-4px)`) + shadow increase
+- Match rows: Highlight background on hover, transition 150ms
+- Shots pills: Subtle scale or color shift on hover
+
+**Placeholder Visual Distinction**:
+- Placeholder fields should have a dashed border OR light yellow/gray background tint
+- Icon or badge: small "📝 Edit" indicator visible on hover
+- Font: slightly lighter gray for placeholders to indicate "not final"
 
 ---
 
 ## QA BRIEF
 
-After dev and design work is complete, verify:
+### Functional Testing
 
-1. **Navigation & Buttons**
-   - [ ] Theme toggle button works and persists preference
-   - [ ] Hamburger menu works on mobile/tablet and closes properly
-   - [ ] Navigation links highlight active page correctly
-   - [ ] All nav links navigate to correct pages
-   - [ ] Blog cards (if fixed) navigate or are properly disabled
-   - [ ] Scroll indicator (if kept) works on click or removed
+1. **Data Loading**
+   - [ ] `/data/crossfit-prs.json` loads successfully in browser console (no 404)
+   - [ ] `/data/tennis-profile.json` loads successfully
+   - [ ] JSON files are valid (no parse errors in console)
+   - [ ] Data renders without console errors
 
-2. **Personal Page Photos**
-   - [ ] All 4 family photos load and display correctly
-   - [ ] Photos are properly sized (200x200 or styled consistently)
-   - [ ] Photos have alt text
-   - [ ] Photos render in both light and dark modes
-   - [ ] No broken image placeholders showing
+2. **CrossFit PRs Section**
+   - [ ] All three WOD categories load and display correctly
+   - [ ] Compound lift PR values display with correct weight units
+   - [ ] Filter pills toggle between categories smoothly
+   - [ ] All dates display in consistent format
+   - [ ] Hover effects work: cards lift, shadows increase
+   - [ ] Progress bars (if implemented) calculate correctly and display 0-100%
+   - [ ] Recent badge ("Last tested") shows only for PRs within 60 days
 
-3. **Visual Design**
-   - [ ] Hero section has color gradient/accent on word
-   - [ ] Spacing between hero elements is generous (no cramping)
-   - [ ] All cards have shadows and hover effects working
-   - [ ] Hover states are smooth and responsive
-   - [ ] Filter pill transitions are smooth
-   - [ ] Footer has proper spacing and visual separation
-   - [ ] Dark mode colors look good with new shadows/styling
+3. **Tennis Section**
+   - [ ] Profile stats display with correct labels and values
+   - [ ] USTA/UTR ratings show placeholder text clearly
+   - [ ] Win-loss record calculates correctly from matches array
+   - [ ] Recent matches list shows in chronological order (newest first)
+   - [ ] Result badges correctly show "W" in green, "L" in red
+   - [ ] Scores display in correct format (e.g., "6-4, 6-3")
+   - [ ] All placeholder fields are visually distinct and editable
+   - [ ] Favorite shots pills render as horizontal list
 
-4. **Performance & Responsiveness**
-   - [ ] All pages load without console errors
-   - [ ] Responsive on mobile (375px), tablet (768px), and desktop (1024px+)
-   - [ ] Hover effects don't cause layout shift
-   - [ ] Transitions don't feel sluggish or janky
-   - [ ] Images load without affecting layout (no CLS)
+4. **Responsive Design**
+   - [ ] Desktop (1024px+): Layouts match design specs
+   - [ ] Tablet (768px): Grids adjust to 2 columns, spacing remains balanced
+   - [ ] Mobile (375px): Single column, cards stack vertically, text remains readable
+   - [ ] No horizontal scrolling on any breakpoint
+   - [ ] Touch targets ≥48px on mobile (filter pills, match rows)
 
-5. **Accessibility**
-   - [ ] All buttons have proper aria-labels
-   - [ ] Color contrast meets WCAG AA standards
-   - [ ] Keyboard navigation works (Tab through all interactive elements)
-   - [ ] Focus states are visible
-   - [ ] Alt text on all images is descriptive
+5. **Visual & Polish**
+   - [ ] Shadows and hover effects smooth (no janky transitions)
+   - [ ] All text readable in light and dark modes
+   - [ ] Colors match design brief (accent red #e63946, grays consistent)
+   - [ ] Line heights and spacing match existing site (breathing room)
+   - [ ] Icons/emojis (if added) render correctly across browsers
+   - [ ] Card borders, if used, have consistent 1px stroke in --border-color
+
+6. **Accessibility**
+   - [ ] All section headers are semantic `<h2>` or `<h3>` tags
+   - [ ] Color-coded results (W/L) have text fallback (not color-only)
+   - [ ] Filter pills are keyboard accessible (Tab to focus, Space/Enter to toggle)
+   - [ ] All images and badges have alt text or aria-labels
+   - [ ] Focus states visible on all interactive elements
+   - [ ] Contrast meets WCAG AA (4.5:1 for normal text)
+
+7. **Cross-Browser & Device**
+   - [ ] Test on Chrome, Firefox, Safari, Edge (latest versions)
+   - [ ] Test on iOS Safari and Android Chrome
+   - [ ] Fonts load correctly (no FOUT/FOIT flicker)
+   - [ ] JSON files serve with correct MIME type (application/json)
+
+8. **Performance**
+   - [ ] Page load time <2.5s (including all data files)
+   - [ ] No layout shift when images or data loads (CLS <0.1)
+   - [ ] Transitions don't cause jank (60fps on hover/filter)
+   - [ ] Console has no warnings or errors
+
+### Content Testing
+
+9. **Placeholder Data Verification**
+   - [ ] Every placeholder field has "PLACEHOLDER:" prefix clearly visible
+   - [ ] Placeholder text is realistic but obviously temporary (e.g., "[Opponent Name]")
+   - [ ] No live personal data in placeholders (e.g., no real phone numbers or addresses)
+
+10. **Integration with Existing Site**
+    - [ ] New sections don't break layout of "Family", "Sports & Fitness", or "Beyond Work" sections
+    - [ ] Footer remains accessible below all sections
+    - [ ] Page title "PERSONAL LIFE" still displays prominently
+    - [ ] Navigation highlighting works correctly (Personal page active state)
+
+---
+
+## Implementation Notes
+
+- Use the existing design tokens from `styles.css` (colors, spacing, shadows, transitions)
+- Follow the component patterns already in site (cards, grids, tags/pills, stat displays)
+- Keep HTML semantic and clean (avoid wrapper divs when not needed)
+- Use CSS Grid or Flexbox (no floats) for layouts
+- Consider lazy-loading or data fetching patterns if performance becomes a concern
+- Test all data entry with Seth before deploying (coordinate placeholder → real data migration)

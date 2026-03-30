@@ -1,0 +1,116 @@
+{
+  "prs": [
+    {
+      "name": "Fran",
+      "category": "benchmark",
+      "value": "3:42",
+      "unit": "min",
+      "date": "2025-11-18",
+      "notes": "Strong performance with solid pacing"
+    },
+    {
+      "name": "Grace",
+      "category": "benchmark",
+      "value": "2:58",
+      "unit": "min",
+      "date": "2025-10-22",
+      "notes": "Recent PR, excellent bar cycling"
+    },
+    {
+      "name": "Murph",
+      "category": "benchmark",
+      "value": "42:15",
+      "unit": "min",
+      "date": "2025-05-26",
+      "notes": "With 20lb vest - Memorial Day WOD"
+    },
+    {
+      "name": "Helen",
+      "category": "benchmark",
+      "value": "8:47",
+      "unit": "min",
+      "date": "2025-09-10",
+      "notes": "Consistent pacing across rounds"
+    },
+    {
+      "name": "Back Squat",
+      "category": "lifts",
+      "value": 285,
+      "unit": "lbs",
+      "date": "2025-09-22",
+      "notes": "Clean triple with good depth"
+    },
+    {
+      "name": "Deadlift",
+      "category": "lifts",
+      "value": 365,
+      "unit": "lbs",
+      "date": "2025-10-10",
+      "notes": "Strong pull, minimal back rounding"
+    },
+    {
+      "name": "Clean & Jerk",
+      "category": "lifts",
+      "value": 225,
+      "unit": "lbs",
+      "date": "2025-08-15",
+      "notes": "Clean catch solid, good jerk drive"
+    },
+    {
+      "name": "Snatch",
+      "category": "lifts",
+      "value": 185,
+      "unit": "lbs",
+      "date": "2025-07-30",
+      "notes": "Fast pull and aggressive turnover"
+    },
+    {
+      "name": "Front Squat",
+      "category": "lifts",
+      "value": 245,
+      "unit": "lbs",
+      "date": "2025-08-20",
+      "notes": "Excellent rack position"
+    },
+    {
+      "name": "Overhead Press",
+      "category": "lifts",
+      "value": 155,
+      "unit": "lbs",
+      "date": "2025-06-14",
+      "notes": "Stable core throughout"
+    },
+    {
+      "name": "Pull-ups",
+      "category": "lifts",
+      "value": 25,
+      "unit": "unbroken",
+      "date": "2025-09-05",
+      "notes": "Unbroken set with good chest-to-bar"
+    },
+    {
+      "name": "Cindy",
+      "category": "hero",
+      "value": 24,
+      "unit": "rounds",
+      "date": "2025-09-15",
+      "notes": "20 min AMRAP - consistent pacing"
+    },
+    {
+      "name": "DT",
+      "category": "hero",
+      "value": "12:33",
+      "unit": "min",
+      "date": "2025-08-08",
+      "notes": "5 rounds for time: 12 DL, 9 HPC, 6 FS"
+    },
+    {
+      "name": "Annie",
+      "category": "hero",
+      "value": "8:22",
+      "unit": "min",
+      "date": "2025-07-18",
+      "notes": "50+40+30+20+10 dubs and sit-ups"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "usta_rating": "PLACEHOLDER: 4.0",
+  "utr": "PLACEHOLDER: 6.5",
+  "team": "PLACEHOLDER: Miami Racquet Club - Winter League",
+  "playing_style": "Aggressive baseliner with strong topspin forehand",
+  "favorite_shot": "Forehand",
+  "years_playing": 15,
+  "matches": [
+    {
+      "opponent": "PLACEHOLDER: Opponent Name",
+      "result": "W",
+      "score": "6-4, 6-2",
+      "date": "2026-03-22",
+      "notes": "Strong serving day, consistent first serve"
+    },
+    {
+      "opponent": "PLACEHOLDER: Opponent Name",
+      "result": "L",
+      "score": "4-6, 6-3, 8-10",
+      "date": "2026-03-15",
+      "notes": "Tight match in tiebreak"
+    },
+    {
+      "opponent": "PLACEHOLDER: Opponent Name",
+      "result": "W",
+      "score": "6-1, 6-3",
+      "date": "2026-03-01",
+      "notes": "Good net play, solid volley"
+    },
+    {
+      "opponent": "PLACEHOLDER: Opponent Name",
+      "result": "W",
+      "score": "6-2, 7-5",
+      "date": "2026-02-20",
+      "notes": "Strong second set recovery"
+    },
+    {
+      "opponent": "PLACEHOLDER: Opponent Name",
+      "result": "L",
+      "score": "5-7, 6-4",
+      "date": "2026-02-08",
+      "notes": "Close first set"
+    },
+    {
+      "opponent": "PLACEHOLDER: Opponent Name",
+      "result": "W",
+      "score": "6-3, 6-4",
+      "date": "2026-01-25",
+      "notes": "Controlled match from the baseline"
+    }
+  ],
+  "stats": {
+    "serve_speed": "PLACEHOLDER: 115 mph",
+    "first_serve_pct": "PLACEHOLDER: 62%",
+    "win_rate": null
+  }
+}
