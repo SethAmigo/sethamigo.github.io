@@ -50,11 +50,29 @@ function renderBlogPosts() {
     document.querySelectorAll('.blog-card').forEach(card => {
         card.addEventListener('click', (e) => {
             e.preventDefault();
-            const slug = card.dataset.slug;
-            // For now, just log. In future, navigate to post detail page
-            console.log('Clicked blog post:', slug);
+            showComingSoonToast();
         });
     });
+}
+
+function showComingSoonToast() {
+    // Create toast element
+    const toast = document.createElement('div');
+    toast.className = 'coming-soon-toast';
+    toast.textContent = 'Blog posts coming soon! 📝';
+    toast.setAttribute('role', 'status');
+    toast.setAttribute('aria-live', 'polite');
+
+    document.body.appendChild(toast);
+
+    // Trigger animation
+    setTimeout(() => toast.classList.add('show'), 10);
+
+    // Remove after 3 seconds
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 300);
+    }, 3000);
 }
 
 function initBlogFilters() {
